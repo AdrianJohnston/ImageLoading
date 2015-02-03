@@ -9,7 +9,7 @@
 
 int main() {
 
-    std::string inputfile = "/home/adrian/ClionProjects/OpenGL-Examples/external/tinyobjloader/cornell_box.obj";
+    std::string inputfile = "../external/tinyobjloader/cornell_box.obj";
     std::vector<tinyobj::shape_t> shapes;
     std::vector<tinyobj::material_t> materials;
 

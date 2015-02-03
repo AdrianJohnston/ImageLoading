@@ -73,53 +73,16 @@ SOURCE_GROUP(shaders REGULAR_EXPRESSION ".*/.*shader$" )
 ##This is incredibly useful code. It will copy the executables to the source directories. Thereby removing any need to set the working
 ## directory. Presumably the XCode Wrapper is there as Xcode can handle this automatically. I do not have a Mac to test with
 
-if (NOT ${CMAKE_GENERATOR} MATCHES "Xcode" )
-
 add_custom_command(
    TARGET textured_cube POST_BUILD
    COMMAND ${CMAKE_COMMAND} -E copy "${CMAKE_CURRENT_BINARY_DIR}/${CMAKE_CFG_INTDIR}/textured_cube${CMAKE_EXECUTABLE_SUFFIX}" "${CMAKE_CURRENT_SOURCE_DIR}/textured_cube/"
 )
 
-add_custom_command(
-   TARGET model_loading POST_BUILD
-   COMMAND ${CMAKE_COMMAND} -E copy "${CMAKE_CURRENT_BINARY_DIR}/${CMAKE_CFG_INTDIR}/model_loading${CMAKE_EXECUTABLE_SUFFIX}" "${CMAKE_CURRENT_SOURCE_DIR}/model_loading/"
-)
-add_custom_command(
-   TARGET basic_shading POST_BUILD
-   COMMAND ${CMAKE_COMMAND} -E copy "${CMAKE_CURRENT_BINARY_DIR}/${CMAKE_CFG_INTDIR}/basic_shading${CMAKE_EXECUTABLE_SUFFIX}" "${CMAKE_CURRENT_SOURCE_DIR}/basic_shading/"
-)
-add_custom_command(
-   TARGET vbo_indexing POST_BUILD
-   COMMAND ${CMAKE_COMMAND} -E copy "${CMAKE_CURRENT_BINARY_DIR}/${CMAKE_CFG_INTDIR}/vbo_indexing${CMAKE_EXECUTABLE_SUFFIX}" "${CMAKE_CURRENT_SOURCE_DIR}/vbo_indexing/"
-)
-add_custom_command(
-   TARGET tutorial09_AssImp POST_BUILD
-   COMMAND ${CMAKE_COMMAND} -E copy "${CMAKE_CURRENT_BINARY_DIR}/${CMAKE_CFG_INTDIR}/tutorial09_AssImp${CMAKE_EXECUTABLE_SUFFIX}" "${CMAKE_CURRENT_SOURCE_DIR}/vbo_indexing/"
-)
-add_custom_command(
-   TARGET tutorial09_several_objects POST_BUILD
-   COMMAND ${CMAKE_COMMAND} -E copy "${CMAKE_CURRENT_BINARY_DIR}/${CMAKE_CFG_INTDIR}/tutorial09_several_objects${CMAKE_EXECUTABLE_SUFFIX}" "${CMAKE_CURRENT_SOURCE_DIR}/vbo_indexing/"
-)
-
-add_custom_command(
-   TARGET render_to_texture POST_BUILD
-   COMMAND ${CMAKE_COMMAND} -E copy "${CMAKE_CURRENT_BINARY_DIR}/${CMAKE_CFG_INTDIR}/render_to_texture${CMAKE_EXECUTABLE_SUFFIX}" "${CMAKE_CURRENT_SOURCE_DIR}/render_to_texture/"
-)
 
 
-add_custom_command(
-   TARGET shadowmaps POST_BUILD
-   COMMAND ${CMAKE_COMMAND} -E copy "${CMAKE_CURRENT_BINARY_DIR}/${CMAKE_CFG_INTDIR}/shadowmaps${CMAKE_EXECUTABLE_SUFFIX}" "${CMAKE_CURRENT_SOURCE_DIR}/shadowmaps/"
-)
-
-add_custom_command(
-   TARGET rotations POST_BUILD
-   COMMAND ${CMAKE_COMMAND} -E copy "${CMAKE_CURRENT_BINARY_DIR}/${CMAKE_CFG_INTDIR}/rotations${CMAKE_EXECUTABLE_SUFFIX}" "${CMAKE_CURRENT_SOURCE_DIR}/rotations/"
-)
 
 
-elseif (${CMAKE_GENERATOR} MATCHES "Xcode" )
 
-endif (NOT ${CMAKE_GENERATOR} MATCHES "Xcode" )
+
 
 
