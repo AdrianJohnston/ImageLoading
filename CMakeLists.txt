@@ -17,11 +17,6 @@ endif()
 # Compile external dependencies
 add_subdirectory (external)
 
-if(INCLUDE_DISTRIB)
-	add_subdirectory(distrib)
-endif(INCLUDE_DISTRIB)
-
-
 
 include_directories(
 	external/glfw-3.0.3/include/GLFW/
@@ -44,39 +39,16 @@ add_definitions(
 	-D_CRT_SECURE_NO_WARNINGS
 )
 
-# Tutorial 5
-add_executable(textured_cube
-	textured_cube/tutorial05.cpp
-	common/shader.cpp
-	common/shader.hpp
-	common/texture.cpp
-	common/texture.hpp
-	textured_cube/TransformVertexShader.vertexshader
-	textured_cube/TextureFragmentShader.fragmentshader
-)
-target_link_libraries(textured_cube
-	${ALL_LIBS}
-)
+SOURCE_GROUP(common REGULAR_EXPRESSION ".*/common/.*" )
+SOURCE_GROUP(shaders REGULAR_EXPRESSION ".*/.*shader$" )
 
-set_target_properties(textured_cube PROPERTIES XCODE_ATTRIBUTE_CONFIGURATION_BUILD_DIR "${CMAKE_CURRENT_SOURCE_DIR}/textured_cube/")
-
+add_subdirectory(textured_cube)
 add_subdirectory(TinyObjTest)
 
 
 #Add all of the common code and shaders to the projects - Usefull if using a IDE such as CLion, QtCreator, XCode or
 # Visual Studio
 
-SOURCE_GROUP(common REGULAR_EXPRESSION ".*/common/.*" )
-SOURCE_GROUP(shaders REGULAR_EXPRESSION ".*/.*shader$" )
-
-
-##This is incredibly useful code. It will copy the executables to the source directories. Thereby removing any need to set the working
-## directory. Presumably the XCode Wrapper is there as Xcode can handle this automatically. I do not have a Mac to test with
-
-add_custom_command(
-   TARGET textured_cube POST_BUILD
-   COMMAND ${CMAKE_COMMAND} -E copy "${CMAKE_CURRENT_BINARY_DIR}/${CMAKE_CFG_INTDIR}/textured_cube${CMAKE_EXECUTABLE_SUFFIX}" "${CMAKE_CURRENT_SOURCE_DIR}/textured_cube/"
-)
 
 
 
