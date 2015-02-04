@@ -16,17 +16,12 @@ add_executable(${EXEC_NAME}
 	TextureFragmentShader.fragmentshader
 )
 
-target_link_libraries(textured_cube
+target_link_libraries(${EXEC_NAME}
 	${ALL_LIBS}
 )
 
-#set_target_properties( textured_cube PROPERTIES RUNTIME_OUTPUT_DIRECTORY "${PROJECT_NAME}_SOURCE_DIR/build")
-
-#Special command to allow integration with XCODE
+#Special command to allow integration with XCODE - This may not work
 #set_target_properties(textured_cube PROPERTIES XCODE_ATTRIBUTE_CONFIGURATION_BUILD_DIR "${CMAKE_CURRENT_SOURCE_DIR}/textured_cube/")
-
-
-
 
 ##This is incredibly useful code. It will copy the executables to the source directories. Thereby removing any need to set the working
 ## directory.

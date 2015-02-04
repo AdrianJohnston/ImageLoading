@@ -1,16 +1,14 @@
-#CMake entry point
 cmake_minimum_required (VERSION 2.6)
 
-project (TinyObjTest)
+project (ImageLoading)
 
 #Set the Executable Name
-set(EXEC_NAME tinyobjtest)
+set(EXEC_NAME stb_image_test)
 
 #Set the source files
-set(SRC_FILES main.cpp ../common/tiny_obj_loader.cc)
+set(SRC_FILES main.cpp stb_image.h)
 
 add_executable(${EXEC_NAME} ${SRC_FILES})
-
 
 add_custom_command(
    TARGET ${EXEC_NAME} POST_BUILD
