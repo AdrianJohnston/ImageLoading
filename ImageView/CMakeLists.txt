@@ -1,6 +1,6 @@
 cmake_minimum_required (VERSION 2.6)
 
-project (ImageViewing)
+project (ImageView)
 
 #Set the Executable Name
 set(EXEC_NAME image_view)

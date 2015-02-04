@@ -36,7 +36,7 @@ SOURCE_GROUP(shaders REGULAR_EXPRESSION ".*/.*shader$" )
 # Build the independant projects. Global state is passed to each one e.g. External Dependencies
 add_subdirectory(textured_cube)
 add_subdirectory(TinyObjTest)
-add_subdirectory(Images)
+add_subdirectory(ImageLoad)
 add_subdirectory(ImageView)
 
 

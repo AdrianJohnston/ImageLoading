@@ -28,7 +28,7 @@ int main(){
 
     int x,y,n;
 
-    /*Unsigned char works well for 8bits per channel e.g. Standard PNG/JPEG Images*/
+    /*Unsigned char works well for 8bits per channel e.g. Standard PNG/JPEG images*/
     unsigned char *data = stbi_load(
             image_path.c_str(), /*char* filepath */
             &x, /*The address to store the width of the image*/
